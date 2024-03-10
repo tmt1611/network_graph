@@ -148,7 +148,7 @@ def create_network_graph(df):
 
     # Update layout with rectangles
     layout = go.Layout(
-        title='Network graph made with Python',
+        title='Network map - Elf',
         titlefont_size=16,
         showlegend=False,
         hovermode='closest',
