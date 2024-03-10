@@ -8,4 +8,5 @@ openpyxl
 datetime
 networkx
 alphashape
-community
+community==1.0.0b1
+
