@@ -6,6 +6,7 @@ from community import community_louvain
 import numpy as np
 from alphashape import alphashape
 import datetime
+import panda as pd
 
 def alpha_shape(coordinates, alpha=0):
     # Compute the alpha-shape
