@@ -1,0 +1,40 @@
+name: Generate HTML
+
+on:
+  push:
+    branches:
+      - main  # Adjust the branch name as needed
+
+jobs:
+  generate-html:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8  # Adjust the Python version as needed
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r tmt1611.github.io/requirements.txt  # If you have any dependencies
+
+    - name: Fetch and merge remote changes
+      run: |
+        git fetch origin
+        git merge origin/main
+        
+    - name: Run Python script generating html
+      run: python tmt1611.github.io/main.py  # Draw sunburst and generate HTML
+
+    - name: Commit and Push Changes
+      run: |
+        git config user.email "actions@github.com"
+        git config user.name "GitHub Actions"
+        git add .
+        git commit -m "Auto generate HTML"
+        git push origin main
