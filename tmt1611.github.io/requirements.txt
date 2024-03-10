@@ -7,6 +7,5 @@ Flask==2.2.5
 openpyxl
 datetime
 networkx
-random
 alphashape
 community
